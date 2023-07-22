@@ -1,24 +1,25 @@
-# lsattr
+# lsattr [modified]
 
-> List file attributes on a Linux filesystem.
+> List file attributes on a Linux filesystem. 配套使用 `chattr`.
 > More information: <https://manned.org/lsattr>.
 
-- Display the attributes of the files in the current directory:
+- 查看当前目录下的文件属性：
 
 `lsattr`
 
-- List the attributes of files in a particular path:
+- 指定路径：
 
 `lsattr {{path}}`
 
-- List file attributes recursively in the current and subsequent directories:
+- 递归查看：
 
 `lsattr -R`
 
-- Show attributes of all the files in the current directory, including hidden ones:
+- 查看所有文件，包括隐藏文件：
 
 `lsattr -a`
 
-- Display attributes of directories in the current directory:
+- 仅查看目录的属性：
 
 `lsattr -d`
+

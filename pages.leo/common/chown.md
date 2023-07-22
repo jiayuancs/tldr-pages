@@ -1,24 +1,21 @@
-# chown
+# chown [modified]
 
 > Change user and group ownership of files and directories.
 > More information: <https://www.gnu.org/software/coreutils/chown>.
 
-- Change the owner user of a file/directory:
-
-`chown {{user}} {{path/to/file_or_directory}}`
-
-- Change the owner user and group of a file/directory:
+- 改变所属用户和用户组：
 
 `chown {{user}}:{{group}} {{path/to/file_or_directory}}`
 
-- Recursively change the owner of a directory and its contents:
+- 递归改变所有者：
 
 `chown -R {{user}} {{path/to/directory}}`
 
-- Change the owner of a symbolic link:
+- h 选项改变符号链接文件本身的所有者（不更改其指向的文件所有者）：
 
 `chown -h {{user}} {{path/to/symlink}}`
 
 - Change the owner of a file/directory to match a reference file:
 
 `chown --reference={{path/to/reference_file}} {{path/to/file_or_directory}}`
+

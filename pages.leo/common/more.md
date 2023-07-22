@@ -1,4 +1,4 @@
-# more
+# more [modified]
 
 > Open a file for interactive reading, allowing scrolling and search.
 > More information: <https://manned.org/more>.
@@ -7,26 +7,23 @@
 
 `more {{path/to/file}}`
 
-- Open a file displaying from a specific line:
-
-`more +{{line_number}} {{path/to/file}}`
-
-- Display help:
-
-`more --help`
-
-- Go to the next page:
+- 下一页：
 
 `<Space>`
 
-- Search for a string (press `n` to go to the next match):
+- 上一行/下一行：
+
+`↑ / ↓`
+
+- 搜索字符串 (press `n` to go to the next match):
 
 `/{{something}}`
 
-- Exit:
+- 退出：
 
 `q`
 
-- Display help about interactive commands:
+- 查看帮助信息：
 
 `h`
+

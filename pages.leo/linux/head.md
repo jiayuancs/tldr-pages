@@ -1,20 +1,9 @@
-# head
+# head [modified]
 
 > Output the first part of files.
 > More information: <https://www.gnu.org/software/coreutils/head>.
 
-- Output the first few lines of a file:
+- 输出文件的前 count 行：
 
-`head --lines {{count}} {{path/to/file}}`
+`head -n {{count}} {{file}}`
 
-- Output the first few bytes of a file:
-
-`head --bytes {{count}} {{path/to/file}}`
-
-- Output everything but the last few lines of a file:
-
-`head --lines -{{count}} {{path/to/file}}`
-
-- Output everything but the last few bytes of a file:
-
-`head --bytes -{{count}} {{path/to/file}}`

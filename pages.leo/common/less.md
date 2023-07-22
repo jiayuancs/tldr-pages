@@ -1,4 +1,4 @@
-# less
+# less [modified]
 
 > Open a file for interactive reading, allowing scrolling and search.
 > More information: <https://greenwoodsoftware.com/less/>.
@@ -7,29 +7,25 @@
 
 `less {{source_file}}`
 
-- Page down/up:
+- 上一页/下一页:
 
-`<Space> (down), b (up)`
+`b / <Space>`
 
-- Go to end/start of file:
+- 上一行/下一行
 
-`G (end), g (start)`
+`k / j`
 
-- Forward search for a string (press `n`/`N` to go to next/previous match):
+- 文档首部/尾部:
+
+`g / G`
+
+- 向下搜索 (press `n`/`N` to go to next/previous match):
 
 `/{{something}}`
 
-- Backward search for a string (press `n`/`N` to go to next/previous match):
+- 向上搜索 (press `n`/`N` to go to next/previous match):
 
 `?{{something}}`
-
-- Follow the output of the currently opened file:
-
-`F`
-
-- Open the current file in an editor:
-
-`v`
 
 - Exit:
 

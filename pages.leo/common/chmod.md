@@ -1,36 +1,30 @@
-# chmod
+# chmod [modified]
 
 > Change the access permissions of a file or directory.
 > More information: <https://www.gnu.org/software/coreutils/chmod>.
 
-- Give the [u]ser who owns a file the right to e[x]ecute it:
+- 常用格式（u 表示其拥有者，g 表示其所属组，o表示其他用户，a 同时表示这三类）：
 
-`chmod u+x {{path/to/file}}`
+`chmod [ugoa][+-=][rwx] {{path/to/file}}`
 
-- Give the [u]ser rights to [r]ead and [w]rite to a file/directory:
+- 使用数字指定权限；第一个数字用于指定 SGID 权限（见下文），可省略；
+- 其余三个数字分别对应 u,g,o 三类用户权限：
 
-`chmod u+rw {{path/to/file_or_directory}}`
+`chmod 2740 {{path/to/file}}`
 
-- Remove e[x]ecutable rights from the [g]roup:
+- 递归：
 
-`chmod g-x {{path/to/file}}`
+`chmod -R u+x,g+w {{path/to/file}}`
 
-- Give [a]ll users rights to [r]ead and e[x]ecute:
+- SUID，SGID，SBIT 权限：
 
-`chmod a+rx {{path/to/file}}`
+```
+SUID: 4, u+s, 针对二进制程序有效，执行者将具有拥有者的权限
+SGID: 2, g+s, 针对二进制程序和目录有效
+SBIT: 1, o+t, 针对目录有效，在该目录下创建的文件仅有自己和 root 可以删除
+```
 
-- Give [o]thers (not in the file owner's group) the same rights as the [g]roup:
+- 为一个二进制程序添加 SUID 权限：
 
-`chmod o=g {{path/to/file}}`
+`chmod u+s {{path/to/binary}}`
 
-- Remove all rights from [o]thers:
-
-`chmod o= {{path/to/file}}`
-
-- Change permissions recursively giving [g]roup and [o]thers the ability to [w]rite:
-
-`chmod -R g+w,o+w {{path/to/directory}}`
-
-- Recursively give [a]ll users [r]ead permissions to files and e[X]ecute permissions to sub-directories within a directory:
-
-`chmod -R a+rX {{path/to/directory}}`

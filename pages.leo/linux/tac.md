@@ -1,25 +1,10 @@
-# tac
+# tac [modified]
 
 > Display and concatenate files with lines in reversed order.
-> See also: `cat`.
+> See also: `cat`. `tac` 是 `cat` 的反写。
 > More information: <https://www.gnu.org/software/coreutils/tac>.
 
-- Concatenate specific files in reversed order:
+- 反向输出一个文件：
 
-`tac {{path/to/file1 path/to/file2 ...}}`
+`tac {{path/to/file}}`
 
-- Display `stdin` in reversed order:
-
-`{{cat path/to/file}} | tac`
-
-- Use a specific separator:
-
-`tac --separator {{,}} {{path/to/file1 path/to/file2 ...}}`
-
-- Use a specific regex as a separator:
-
-`tac --regex --separator {{[,;]}} {{path/to/file1 path/to/file2 ...}}`
-
-- Use a separator before each file:
-
-`tac --before {{path/to/file1 path/to/file2 ...}}`
