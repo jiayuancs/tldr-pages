@@ -1,16 +1,9 @@
-# apropos
+# apropos [modified]
 
 > Search the manual pages for names and descriptions.
 > More information: <https://manned.org/apropos>.
 
-- Search for a keyword using a regular expression:
+- 模糊搜索，可使用正则表达式，等价于 man -k ：
 
-`apropos {{regular_expression}}`
+`apropos {{command}}`
 
-- Search without restricting the output to the terminal width:
-
-`apropos -l {{regular_expression}}`
-
-- Search for pages that contain all the expressions given:
-
-`apropos {{regular_expression_1}} -a {{regular_expression_2}} -a {{regular_expression_3}}`

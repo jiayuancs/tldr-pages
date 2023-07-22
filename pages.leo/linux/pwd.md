@@ -1,4 +1,4 @@
-# pwd
+# pwd [modified]
 
 > Print name of current/working directory.
 > More information: <https://www.gnu.org/software/coreutils/pwd>.
@@ -7,10 +7,7 @@
 
 `pwd`
 
-- Print the current directory, and resolve all symlinks (i.e. show the "physical" path):
+- 解析符号链接，输出当前工作目录的物理位置（physical）:
 
-`pwd --physical`
+`pwd -P`
 
-- Print the current logical directory:
-
-`pwd --logical`

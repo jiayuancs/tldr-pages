@@ -1,32 +1,24 @@
-# mv
+# mv [modified]
 
 > Move or rename files and directories.
 > More information: <https://www.gnu.org/software/coreutils/mv>.
 
-- Rename a file or directory when the target is not an existing directory:
+- 重命名/移动文件，当移动文件时，可以有多个源文件：
 
 `mv {{path/to/source}} {{path/to/target}}`
 
-- Move a file or directory into an existing directory:
-
-`mv {{path/to/source}} {{path/to/existing_directory}}`
-
-- Move multiple files into an existing directory, keeping the filenames unchanged:
-
-`mv {{path/to/source1 path/to/source2 ...}} {{path/to/existing_directory}}`
-
-- Do not prompt for confirmation before overwriting existing files:
+- 覆盖已存在的文件前不进行提示：
 
 `mv -f {{path/to/source}} {{path/to/target}}`
 
-- Prompt for confirmation before overwriting existing files, regardless of file permissions:
+- 在覆盖现有文件之前提示确认，无论文件权限如何：
 
 `mv -i {{path/to/source}} {{path/to/target}}`
 
-- Do not overwrite existing files at the target:
+- 不覆盖目标上的现有文件：
 
 `mv -n {{path/to/source}} {{path/to/target}}`
 
-- Move files in verbose mode, showing files after they are moved:
+- 显示移动后的文件：
 
 `mv -v {{path/to/source}} {{path/to/target}}`

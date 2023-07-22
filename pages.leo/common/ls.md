@@ -1,4 +1,4 @@
-# ls
+# ls [modified]
 
 > List directory contents.
 > More information: <https://www.gnu.org/software/coreutils/ls>.
@@ -7,30 +7,24 @@
 
 `ls -1`
 
-- List all files, including hidden files:
+- a 表示所有文件，h 表示以易读的方式显示文件大小，l 表示详细信息：
 
-`ls -a`
+`ls -ahl`
 
-- List all files, with trailing `/` added to directory names:
+- time 选项用于指定显示的时间类型，默认为 mtime；
+- full-time 选项用于显示完整的时间：
+
+`ls --time={{atime/ctime}} --full-time`
+
+- 仅列出目录：
+
+`ls -d`
+
+- 列出 inode 号码：
+
+`ls -i`
+
+- 在文件名后添加特殊符号以标识文件类型；
+- * 为可执行文件，/ 为目录，= 为 socket 文件，| 为 FIFO 文件：
 
 `ls -F`
-
-- Long format list (permissions, ownership, size, and modification date) of all files:
-
-`ls -la`
-
-- Long format list with size displayed using human-readable units (KiB, MiB, GiB):
-
-`ls -lh`
-
-- Long format list sorted by size (descending):
-
-`ls -lS`
-
-- Long format list of all files, sorted by modification date (oldest first):
-
-`ls -ltr`
-
-- Only list directories:
-
-`ls -d */`

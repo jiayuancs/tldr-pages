@@ -1,4 +1,4 @@
-# rm
+# rm [modified]
 
 > Remove files or directories.
 > See also: `rmdir`.
@@ -8,18 +8,16 @@
 
 `rm {{path/to/file1 path/to/file2 ...}}`
 
-- Remove specific files ignoring nonexistent ones:
+- r 表示递归；f 表示强制，不输出警告信息：
 
-`rm --force {{path/to/file1 path/to/file2 ...}}`
+`rm -rf {{path/to/file1 path/to/file2 ...}}`
 
-- Remove specific files interactively prompting before each removal:
+- v 表示输出被删除的文件名：
 
-`rm --interactive {{path/to/file1 path/to/file2 ...}}`
+`rm -rfv {{path/to/file1 path/to/file2 ...}}`
 
-- Remove specific files printing info about each removal:
+- i 表示对每个文件都询问是否删除；I 则仅在删除三个以上文件之前，
+- 或使用递归选项（r）时询问一次
 
-`rm --verbose {{path/to/file1 path/to/file2 ...}}`
+`-i / -I`
 
-- Remove specific files and directories recursively:
-
-`rm --recursive {{path/to/file_or_directory1 path/to/file_or_directory2 ...}}`

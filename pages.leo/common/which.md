@@ -1,12 +1,13 @@
-# which
+# which [modified]
 
 > Locate a program in the user's path.
 > More information: <https://manned.org/which>.
 
-- Search the PATH environment variable and display the location of any matching executables:
+
+- 搜索 PATH 环境变量，展示第一个匹配项：
 
 `which {{executable}}`
 
-- If there are multiple executables which match, display all:
+- 搜索 PATH 环境变量，展示所有匹配项：
 
 `which -a {{executable}}`

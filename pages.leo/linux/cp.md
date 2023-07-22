@@ -1,36 +1,17 @@
-# cp
+# cp [modified]
 
 > Copy files and directories.
 > More information: <https://www.gnu.org/software/coreutils/cp>.
 
 - Copy a file to another location:
 
-`cp {{path/to/source_file.ext}} {{path/to/target_file.ext}}`
+`cp {{path/to/source}} {{path/to/target}}`
 
-- Copy a file into another directory, keeping the filename:
+- 递归拷贝：
 
-`cp {{path/to/source_file.ext}} {{path/to/target_parent_directory}}`
+`cp -r {{path/to/source}} {{path/to/target}}`
 
-- Recursively copy a directory's contents to another location (if the destination exists, the directory is copied inside it):
+- 连同文件属性（权限、用户、时间）一并复制：
 
-`cp -r {{path/to/source_directory}} {{path/to/target_directory}}`
+`cp -p {{path/to/source}} {{path/to/target}}`
 
-- Copy a directory recursively, in verbose mode (shows files as they are copied):
-
-`cp -vr {{path/to/source_directory}} {{path/to/target_directory}}`
-
-- Copy multiple files at once to a directory:
-
-`cp -t {{path/to/destination_directory}} {{path/to/file1 path/to/file2 ...}}`
-
-- Copy text files to another location, in interactive mode (prompts user before overwriting):
-
-`cp -i {{*.txt}} {{path/to/target_directory}}`
-
-- Follow symbolic links before copying:
-
-`cp -L {{link}} {{path/to/target_directory}}`
-
-- Use the full path of source files, creating any missing intermediate directories when copying:
-
-`cp --parents {{source/path/to/file}} {{path/to/target_file}}`

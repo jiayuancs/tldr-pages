@@ -1,4 +1,4 @@
-# cd
+# cd [modified]
 
 > Change the current working directory.
 > More information: <https://manned.org/cd>.
@@ -11,18 +11,14 @@
 
 `cd ..`
 
-- Go to the home directory of the current user:
+- 切换到家目录，等价于 cd ~ ：
 
 `cd`
 
-- Go to the home directory of the specified user:
+- 切换到指定用户的家目录：
 
 `cd ~{{username}}`
 
-- Go to the previously chosen directory:
+- 切换到前一个工作目录：
 
 `cd -`
-
-- Go to the root directory:
-
-`cd /`
