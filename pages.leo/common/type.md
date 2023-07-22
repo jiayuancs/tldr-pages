@@ -1,16 +1,16 @@
-# type
+# type [modified]
 
-> Display the type of command the shell will execute.
+> 显示shell将执行的命令类型。
 > More information: <https://manned.org/type>.
 
-- Display the type of a command:
+- 显示命令的类型：
 
 `type {{command}}`
 
-- Display all locations containing the specified executable:
+- 显示所有包含名称为 command 的可执行文件的位置：
 
 `type -a {{command}}`
 
-- Display the name of the disk file that would be executed:
+- 返回将被执行的磁盘上文件的名称：
 
 `type -p {{command}}`
