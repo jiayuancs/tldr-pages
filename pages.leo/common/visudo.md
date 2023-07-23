@@ -1,4 +1,4 @@
-# visudo
+# visudo [modified]
 
 > Safely edit the sudoers file.
 > More information: <https://www.sudo.ws/docs/man/visudo.man>.
@@ -7,14 +7,10 @@
 
 `sudo visudo`
 
-- Check the sudoers file for errors:
+- 检查 /etc/sudoers 文件是否存在语法错误：
 
 `sudo visudo -c`
 
-- Edit the sudoers file using a specific editor:
+- 使用指定的编辑器编辑 /etc/sudoers 文件：
 
-`sudo EDITOR={{editor}} visudo`
-
-- Display version information:
-
-`visudo --version`
+`sudo EDITOR={{vim}} visudo`
