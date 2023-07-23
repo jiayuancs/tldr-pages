@@ -1,36 +1,31 @@
-# grep
+# grep [modified]
 
 > Find patterns in files using regular expressions.
 > More information: <https://www.gnu.org/software/grep/manual/grep.html>.
 
-- Search for a pattern within a file:
+- 命令格式：
 
-`grep "{{search_pattern}}" {{path/to/file}}`
+`grep '正则' [路径] [选项]`
 
-- Search for an exact string (disables regular expressions):
+- 常用选项：
 
-`grep --fixed-strings "{{exact_string}}" {{path/to/file}}`
+```
+-r: 递归
+-i: 忽略大小写
+-n: 输出行号
+-v: 排除匹配
+-E: 使用扩展正则表达式
+-o: 仅显示匹配的字符串本身，而不是输出整行
+-w: 仅显示完整匹配的单词
+-c: 统计匹配的行数
+--color=auto: 匹配的地方高亮（默认 grep 是 grep --color=auto 的别名）
+```
 
-- Search for a pattern in all files recursively in a directory, showing line numbers of matches, ignoring binary files:
+- 搜索非空行：
 
-`grep --recursive --line-number --binary-files={{without-match}} "{{search_pattern}}" {{path/to/directory}}`
+`grep '{{^$}}' {{file}} -nv`
 
-- Use extended regular expressions (supports `?`, `+`, `{}`, `()` and `|`), in case-insensitive mode:
+- 输出非空行和非#开头的行
 
-`grep --extended-regexp --ignore-case "{{search_pattern}}" {{path/to/file}}`
+`grep '{{(^$)|(^#)}}' {{file}} -nvE`
 
-- Print 3 lines of context around, before, or after each match:
-
-`grep --{{context|before-context|after-context}}={{3}} "{{search_pattern}}" {{path/to/file}}`
-
-- Print file name and line number for each match with color output:
-
-`grep --with-filename --line-number --color=always "{{search_pattern}}" {{path/to/file}}`
-
-- Search for lines matching a pattern, printing only the matched text:
-
-`grep --only-matching "{{search_pattern}}" {{path/to/file}}`
-
-- Search `stdin` for lines that do not match a pattern:
-
-`cat {{path/to/file}} | grep --invert-match "{{search_pattern}}"`

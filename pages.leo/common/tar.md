@@ -1,37 +1,38 @@
-# tar
+# tar [modified]
 
 > Archiving utility.
 > Often combined with a compression method, such as gzip or bzip2.
 > More information: <https://www.gnu.org/software/tar>.
 
-- [c]reate an archive and write it to a [f]ile:
+- 常用选项：
 
-`tar cf {{path/to/target.tar}} {{path/to/file1 path/to/file2 ...}}`
+```
+-c: 打包
+-x: 解包
+-v: 输出压缩文件信息
+-f: 指定压缩包的名称
+-C: 指定解压输出路径
+-t: 查看压缩包里的文件名
 
-- [c]reate a g[z]ipped archive and write it to a [f]ile:
+-a: 根据给出的后缀来确定使用何种压缩程序
+-z: 使用 gzip 压缩，后缀格式为 .tar.gz，等同于 .tgz
+-j: 使用 bzip2 压缩，后缀格式为 .tar.bz2
+-J: 使用 xz 压缩，后缀格式为 .tar.xz
+```
 
-`tar czf {{path/to/target.tar.gz}} {{path/to/file1 path/to/file2 ...}}`
+- 打包压缩为指定后缀的文件，根据给出的后缀来确定使用何种压缩程序：
 
-- [c]reate a g[z]ipped archive from a directory using relative paths:
+`tar -caf {{path/to/target.tar[.gz|.bz2|.xz]}} {{path/to/file1 path/to/file2 ...}}`
 
-`tar czf {{path/to/target.tar.gz}} --directory={{path/to/directory}} .`
+- 解压文件到指定目录，如省略 -C 选项，则默认解压到当前目录：
 
-- E[x]tract a (compressed) archive [f]ile into the current directory [v]erbosely:
+`tar -xf {{path/to/source.tar[.gz|.bz2|.xz]}} -C {{path/to/directory}}`
 
-`tar xvf {{path/to/source.tar[.gz|.bz2|.xz]}}`
+- 查看压缩包中包含的文件：
 
-- E[x]tract a (compressed) archive [f]ile into the target directory:
+`tar -tf {{path/to/source.tar[.gz|.bz2|.xz]}}`
 
-`tar xf {{path/to/source.tar[.gz|.bz2|.xz]}} --directory={{path/to/directory}}`
+- 查看一个压缩文件使用何种压缩程序：
 
-- [c]reate a compressed archive and write it to a [f]ile, using [a]rchive suffix to determine the compression program:
+`file {{path/to/file}}`
 
-`tar caf {{path/to/target.tar.xz}} {{path/to/file1 path/to/file2 ...}}`
-
-- Lis[t] the contents of a tar [f]ile [v]erbosely:
-
-`tar tvf {{path/to/source.tar}}`
-
-- E[x]tract files matching a pattern from an archive [f]ile:
-
-`tar xf {{path/to/source.tar}} --wildcards "{{*.html}}"`

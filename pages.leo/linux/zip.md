@@ -1,33 +1,31 @@
-# zip
+# zip [modified]
 
 > Package and compress (archive) files into zip file.
 > See also: `unzip`.
 > More information: <https://manned.org/zip>.
 
-- Add files/directories to a specific archive:
+- Ubuntu 安装 zip 和 unzip：
 
-`zip -r {{path/to/compressed.zip}} {{path/to/file_or_directory1 path/to/file_or_directory2 ...}}`
+`sudo apt install zip unzip`
 
-- Remove files/directories from a specific archive:
+- 常用选项
 
-`zip --delete {{path/to/compressed.zip}} {{path/to/file_or_directory1 path/to/file_or_directory2 ...}}`
+```
+-r: 递归压缩子目录中的文件（压缩目录时必备）
+-q: 不输出额外的信息
+-sf: 即 --show-files，显示压缩包中的文件
+--encrypy: 加密
+```
 
-- Archive files/directories e[x]cluding specified ones:
+- 压缩文件或目录，不输出额外的信息：
 
-`zip {{path/to/compressed.zip}} {{path/to/file_or_directory1 path/to/file_or_directory2 ...}} --exclude {{path/to/excluded_files_or_directories}}`
+`zip -rq {{path/to/compressed.zip}} {{path/to/file1 path/to/file2 ...}}`
 
-- Archive files/directories with a specific compression level (`0` - the lowest, `9` - the highest):
-
-`zip -r -{{0-9}} {{path/to/compressed.zip}} {{path/to/file_or_directory1 path/to/file_or_directory2 ...}}`
-
-- Create an encrypted archive with a specific password:
-
-`zip -r --encrypt {{path/to/compressed.zip}} {{path/to/file_or_directory1 path/to/file_or_directory2 ...}}`
-
-- Archive files/directories to a multi-part [s]plit zip file (e.g. 3 GB parts):
-
-`zip -r -s {{3g}} {{path/to/compressed.zip}} {{path/to/file_or_directory1 path/to/file_or_directory2 ...}}`
-
-- Print a specific archive contents:
+- 查看压缩包中包含的文件：
 
 `zip -sf {{path/to/compressed.zip}}`
+
+- 创建一个加密压缩文件：
+
+`zip -rq --encrypt {{path/to/compressed.zip}} {{path/to/file1 path/to/file2 ...}}`
+

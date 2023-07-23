@@ -1,16 +1,16 @@
-# basename
+# basename [modified]
 
 > Remove leading directory portions from a path.
 > More information: <https://www.gnu.org/software/coreutils/basename>.
 
-- Show only the file name from a path:
+- 取文件名：
 
 `basename {{path/to/file}}`
 
-- Show only the rightmost directory name from a path:
+- 取最后一层目录名：
 
 `basename {{path/to/directory/}}`
 
-- Show only the file name from a path, with a suffix removed:
+- 取文件名，并从中删除后缀：
 
 `basename {{path/to/file}} {{suffix}}`

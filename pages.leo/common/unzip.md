@@ -1,29 +1,26 @@
-# unzip
+# unzip [modified]
 
 > Extract files/directories from ZIP archives.
 > See also: `zip`.
 > More information: <https://manned.org/unzip>.
 
-- Extract all files/directories from specific archives into the current directory:
+- 常用选项
 
-`unzip {{path/to/archive1.zip path/to/archive2.zip ...}}`
+```
+-q: 不输出额外的信息
+-d: 指定输出目录
+-l: 显示压缩包中的文件
+```
 
-- Extract files/directories from archives to a specific path:
+- 解压多个压缩文件到当前目录：
 
-`unzip {{path/to/archive1.zip path/to/archive2.zip ...}} -d {{path/to/output}}`
+`unzip -q {{path/to/compressed.zip path/to/compressed.zip ...}}`
 
-- Extract files/directories from archives to `stdout`:
+- 解压到指定目录下：
 
-`unzip -c {{path/to/archive1.zip path/to/archive2.zip ...}}`
+`unzip -q {{path/to/compressed.zip}} -d {{path/to/directory}}`
 
-- Extract the contents of the file(s) to `stdout` alongside the extracted file names:
+- 显示压缩包中的文件：
 
-`unzip -O {{gbk}} {{path/to/archive1.zip path/to/archive2.zip ...}}`
+`unzip -l {{path/to/compressed.zip}}`
 
-- List the contents of a specific archive without extracting them:
-
-`unzip -l {{path/to/archive.zip}}`
-
-- Extract a specific file from an archive:
-
-`unzip -j {{path/to/archive.zip}} {{path/to/file_in_archive1 path/to/file_in_archive2 ...}}`

@@ -1,28 +1,17 @@
-# whereis
+# whereis [modified]
 
 > Locate the binary, source, and manual page files for a command.
 > More information: <https://manned.org/whereis>.
 
-- Locate binary, source and man pages for ssh:
+- 列出 whereis 会去查询的几个主要目录：
+
+`whereis -l`
+
+- 查询 ssh 相关文件：
 
 `whereis {{ssh}}`
 
-- Locate binary and man pages for ls:
+- 指定查询范围，b 为二进制文件，m 为 man 手册文件，s 为源文件，u 表示不是上述三类文件
 
-`whereis -bm {{ls}}`
+`whereis -{{b|m|s|u}} {{ls}}`
 
-- Locate source of gcc and man pages for Git:
-
-`whereis -s {{gcc}} -m {{git}}`
-
-- Locate binaries for gcc in `/usr/bin/` only:
-
-`whereis -b -B {{/usr/bin/}} -f {{gcc}}`
-
-- Locate unusual binaries (those that have more or less than one binary on the system):
-
-`whereis -u *`
-
-- Locate binaries that have unusual manual entries (binaries that have more or less than one manual installed):
-
-`whereis -u -m *`

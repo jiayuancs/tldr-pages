@@ -1,25 +1,59 @@
-# sed
+# sed [modified]
 
 > Edit text in a scriptable manner.
 > See also: `awk`, `ed`.
 > More information: <https://www.gnu.org/software/sed/manual/sed.html>.
 
-- Replace all `apple` (basic regex) occurrences with `mango` (basic regex) in all input lines and print the result to `stdout`:
+- 命令格式：
 
-`{{command}} | sed 's/apple/mango/g'`
+`sed [选项] [sed内置命令字符] [输入文件]`
 
-- Execute a specific script [f]ile and print the result to `stdout`:
+- 常用选项：
 
-`{{command}} | sed -f {{path/to/script.sed}}`
+```
+-n: 取消 sed 的默认输出( sed 默认输出不匹配的内容)，常与内置命令 p 一起使用
+-i: 直接将结果写入原文件，而不输出到控制台，不用 -i 则修改的仅是内存数据
+-e: 多次编辑
+-r: 支持扩展正则表达式
+```
 
-- Replace all `apple` (extended regex) occurrences with `APPLE` (extended regex) in all input lines and print the result to `stdout`:
+- 常用命令字符：
 
-`{{command}} | sed -E 's/(apple)/\U\1/g'`
+```
+a: append，在指定行后添加一行/多行文本
+d: delete，删除匹配行
+i: insert，在指定行前插入一行/多行文本
+p: print，打印匹配行的内容，通常与 -n 选项一起使用
+s/正则/替换内容/g: 匹配正则内容，然后替换内容，g 表示全局替换
+```
 
-- Print just a first line to `stdout`:
+- 匹配范围：
 
-`{{command}} | sed -n '1p'`
+```
+'':  匹配所有行
+'n': 匹配第 n 行
+/pattern/: 与模式 pattern 匹配的每一行
+范围区间: 'n,m' 表示 [n,m]，n,+m 表示 [n,n+m]
+步长: n~m 表示从 n 开始，步长为 m，即：n,n+m,n+2m,...
+```
 
-- Replace all `apple` (basic regex) occurrences with `mango` (basic regex) in a specific file and overwrite the original file in place:
+- 输出以 hello 结尾的行：
 
-`sed -i 's/apple/mango/g' {{path/to/file}}`
+`sed -n '{{/hello$/p}}' {{path/to/file}}`
+
+- 输出 [2, 5] 行的内容：
+
+`sed -n '{{2,+3p}}' {{path/to/file}}`
+
+- 将 apple 替换为 mango，并写回到文件中：
+
+`sed -i '{{s/apple/mango/g}}' {{path/to/file}}`
+
+- 删除以 # 开头的行，并写回到文件中：
+
+`sed -i '{{/^#/d}}' {{path/to/file}}`
+
+- 在第 2 行下面添加一行 "Hello world"，并写回到文件中：
+
+`sed -i '{{2a Hello world}}' {{path/to/file}}`
+
