@@ -1,13 +1,13 @@
-# tee
+# tee [modified]
 
-> Read from standard input and write to standard output and files (or commands).
+> 从 stdin 读数据，同时输出到指定文件和 stdout.
 > More information: <https://www.gnu.org/software/coreutils/tee>.
 
 - Copy standard input to each file, and also to standard output:
 
 `echo "example" | tee {{path/to/file}}`
 
-- Append to the given files, do not overwrite:
+- 以追加([a]ppend)的方式将数据输出到文件：
 
 `echo "example" | tee -a {{path/to/file}}`
 

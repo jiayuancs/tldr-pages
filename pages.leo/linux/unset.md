@@ -1,16 +1,16 @@
-# unset
+# unset [modified]
 
 > Remove shell variables or functions.
 > More information: <https://manned.org/unset>.
 
-- Remove the variable `foo`, or if the variable doesn't exist, remove the function `foo`:
+- 取消变量 foo，如果变量 foo 不存在，则取消函数 foo:
 
 `unset {{foo}}`
 
-- Remove the variables foo and bar:
+- 取消变量([v]ariable) foo 和 bar:
 
 `unset -v {{foo}} {{bar}}`
 
-- Remove the function my_func:
+- 取消函数([f]unction) my_func:
 
 `unset -f {{my_func}}`

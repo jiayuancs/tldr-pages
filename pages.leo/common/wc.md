@@ -1,28 +1,22 @@
-# wc
+# wc [modified]
 
 > Count lines, words, and bytes.
 > More information: <https://www.gnu.org/software/coreutils/wc>.
 
-- Count all lines in a file:
+- 常用选项：
 
-`wc --lines {{path/to/file}}`
+```
+-l: 行数
+-w: 单词(word)数
+-m: 字符(character)数
+-c: 字节(byte)数
+```
 
-- Count all words in a file:
+- 从左到右依次输出行数、单词数、字符数：
 
-`wc --words {{path/to/file}}`
+`wc {{path/to/file}}`
 
-- Count all bytes in a file:
+- 统计行数：
 
-`wc --bytes {{path/to/file}}`
+`wc -l {{path/to/file}}`
 
-- Count all characters in a file (taking multi-byte characters into account):
-
-`wc --chars {{path/to/file}}`
-
-- Count all lines, words and bytes from `stdin`:
-
-`{{find .}} | wc`
-
-- Count the length of the longest line in number of characters:
-
-`wc --max-line-length {{path/to/file}}`

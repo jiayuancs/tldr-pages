@@ -1,16 +1,25 @@
-# cut
+# cut [modified]
 
 > Cut out fields from `stdin` or files.
 > More information: <https://www.gnu.org/software/coreutils/cut>.
 
-- Print a specific character/field range of each line:
+- 常用选项：
 
-`{{command}} | cut --{{characters|fields}}={{1|1,10|1-10|1-|-10}}`
+```
+-d: 指定分隔字符，常与 -f 连用
+-f: 根据 -d 指定的字符将一行数据划分为多段，-f 用于指定取出第几段（从 1 开始）
+-c: 指定字符区间，区间含义如下：
+    -n  表示 [1,n]
+    n   表示 n
+    n-  表示 [n, +INF)
+    n-m 表示 [n, m]
+```
 
-- Print a range of each line with a specific delimiter:
+- 输出环境变量信息，使用 cut 截取每行第 12 个字符及之后的内容：
 
-`{{command}} | cut --delimiter="{{,}}" --{{fields}}={{1}}`
+`{{export}} | cut -c {{12-}}`
 
-- Print a range of each line of the specific file:
+- 输出 PATH 环境变量中的第 5 个和第 7 个路径：
 
-`cut --{{characters}}={{1}} {{path/to/file}}`
+`{{echo $PATH}} | cut -d '{{:}}' -f '{{5,7}}'`
+

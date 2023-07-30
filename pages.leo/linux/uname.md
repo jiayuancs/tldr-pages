@@ -1,36 +1,41 @@
-# uname
+# uname [modified]
 
-> Uname prints information about the machine and operating system it is run on.
+> uname 即 Unix name，用于显示系统相关信息，比如主机名、内核版本号、硬件架构等。
 > More information: <https://www.gnu.org/software/coreutils/manual/html_node/uname-invocation.html>.
 
-- Print all information:
+- 显示系统所有相关信息：
 
-`uname --all`
+`uname -a`
 
-- Print the current kernel name:
+- 显示内核名称：
 
-`uname --kernel-name`
+`uname -s`
 
-- Print the current network node host name:
+- 显示主机名称：
 
-`uname --nodename`
+`uname -n`
 
-- Print the current kernel release:
+- 显示内核发行版本号：
 
-`uname --kernel-release`
+`uname -r`
 
-- Print the current kernel version:
+- 显示内核版本：
 
-`uname --kernel-version`
+`uname -v`
 
-- Print the current machine hardware name:
+- 显示计算机硬件架构：
 
-`uname --machine`
+`uname -m`
 
-- Print the current processor type:
+- 显示主机处理器类型（比如x86、x86_64）：
 
-`uname --processor`
+`uname -p`
 
-- Print the current operating system name:
+- 显示硬件平台：
 
-`uname --operating-system`
+`uname -i`
+
+- 显示操作系统名称：
+
+`uname -o`
+

@@ -1,24 +1,17 @@
-# paste
+# paste [modified]
 
 > Merge lines of files.
 > More information: <https://www.gnu.org/software/coreutils/paste>.
 
-- Join all the lines into a single line, using TAB as delimiter:
-
-`paste -s {{path/to/file}}`
-
-- Join all the lines into a single line, using the specified delimiter:
-
-`paste -s -d {{delimiter}} {{path/to/file}}`
-
-- Merge two files side by side, each in its column, using TAB as delimiter:
+- 将两个文件中的行与行合并到一起，默认使用 TAB 分隔：
 
 `paste {{file1}} {{file2}}`
 
-- Merge two files side by side, each in its column, using the specified delimiter:
+- -d 选项指定合并时使用的分隔符：
 
 `paste -d {{delimiter}} {{file1}} {{file2}}`
 
-- Merge two files, with lines added alternatively:
+- -s 选项表示将文件中的所有行合并为单行([s]ingle line)，默认使用 TAB 分隔：
 
-`paste -d '\n' {{file1}} {{file2}}`
+`paste -s {{path/to/file}}`
+

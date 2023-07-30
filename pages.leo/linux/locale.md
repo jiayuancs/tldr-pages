@@ -1,4 +1,4 @@
-# locale
+# locale [modified]
 
 > Get locale-specific information.
 > More information: <https://manned.org/locale>.
@@ -9,12 +9,8 @@
 
 - List all available locales:
 
-`locale --all-locales`
+`locale -a`
 
 - Display all available locales and the associated metadata:
 
-`locale --all-locales --verbose`
-
-- Display the current date format:
-
-`locale date_fmt`
+`locale -a -v`

@@ -1,32 +1,25 @@
-# tr
+# tr [modified]
 
-> Translate characters: run replacements based on single characters and character sets.
+> 删除指定的文字，或是对文字进行替换。
 > More information: <https://www.gnu.org/software/coreutils/tr>.
 
-- Replace all occurrences of a character in a file, and print the result:
+- -d 选项用于删除指定字符，例如删除冒号 ':'字符：
 
-`tr {{find_character}} {{replace_character}} < {{path/to/file}}`
+`{{cat /etc/passwd}} | tr -d '{{:}}'`
 
-- Replace all occurrences of a character from another command's output:
-
-`echo {{text}} | tr {{find_character}} {{replace_character}}`
-
-- Map each character of the first set to the corresponding character of the second set:
+- 将文件中指定字符集替换为另一个字符集：
 
 `tr '{{abcd}}' '{{jkmn}}' < {{path/to/file}}`
 
-- Delete all occurrences of the specified set of characters from the input:
+- 删除文件中的 a,b,c,d 字符：
 
-`tr -d '{{input_characters}}' < {{path/to/file}}`
+`tr -d '{{[a-d]}}' < {{path/to/file}}`
 
-- Compress a series of identical characters to a single character:
+- 使用单个字符代替连续出现的 a,b,c,d 字符：
 
-`tr -s '{{input_characters}}' < {{path/to/file}}`
+`tr -s '{{[a-d]}}' < {{path/to/file}}`
 
-- Translate the contents of a file to upper-case:
+- 将所有的小写字符替换为大写字符：
 
-`tr "[:lower:]" "[:upper:]" < {{path/to/file}}`
+`tr '{{[:lower:]}}' '{{[:upper:]}}' < {{path/to/file}}`
 
-- Strip out non-printable characters from a file:
-
-`tr -cd "[:print:]" < {{path/to/file}}`

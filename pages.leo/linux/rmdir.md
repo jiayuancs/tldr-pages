@@ -10,4 +10,4 @@
 
 - 递归地删除特定的嵌套目录（只能删除空目录）：
 
-`rmdir --parents {{path/to/directory1 path/to/directory2 ...}}`
+`rmdir -p {{path/to/directory1 path/to/directory2 ...}}`

@@ -1,24 +1,13 @@
-# expand
+# expand [modified]
 
 > Convert tabs to spaces.
 > More information: <https://www.gnu.org/software/coreutils/expand>.
 
-- Convert tabs in each file to spaces, writing to standard output:
+- 将文件中的 Tab 字符转换为 8 个空格字符，输出到 stdout:
 
 `expand {{path/to/file}}`
 
-- Convert tabs to spaces, reading from standard input:
-
-`expand`
-
-- Do not convert tabs after non blanks:
-
-`expand -i {{path/to/file}}`
-
-- Have tabs a certain number of characters apart, not 8:
+- -t 选项指定 Tab 字符转换为的空格数量：
 
 `expand -t={{number}} {{path/to/file}}`
 
-- Use a comma separated list of explicit tab positions:
-
-`expand -t={{1,4,6}}`
