@@ -1,24 +1,38 @@
-# for
+# for [modified]
 
 > Perform a command several times.
 > More information: <https://www.gnu.org/software/bash/manual/bash.html#Looping-Constructs>.
 
-- Execute the given commands for each of the specified items:
+- 第一种语法格式：
 
-`for {{variable}} in {{item1 item2 ...}}; do {{echo "Loop is executed"}}; done`
+```
+for {{variable}} in {{item1 item2 ...}}; do
+  {{command_block}}
+done
+```
 
-- Iterate over a given range of numbers:
+- 第二种语法格式，类 C 语言：
 
-`for {{variable}} in {{{from}}..{{to}}..{{step}}}; do {{echo "Loop is executed"}}; done`
+```
+for ((初始值; 限制条件; 赋值运算 )); do
+  {{command_block}}
+done
+```
 
-- Iterate over a given list of files:
+- 计算 1 到 100 之间奇数的和，`{1..100..2}` 可用 `$(seq 1 2 100)` 代替
 
-`for {{variable}} in {{path/to/file1 path/to/file2 ...}}; do {{echo "Loop is executed"}}; done`
+```
+sum=0
+for i in {1..100..2}; do
+  sum=$((${sum} + ${i}))
+done
+```
 
-- Iterate over a given list of directories:
+- 计算 1 到 100 之间奇数的和：
 
-`for {{variable}} in {{path/to/directory1/ path/to/directory2/ ...}}; do {{echo "Loop is executed"}}; done`
-
-- Perform a given command in every directory:
-
-`for {{variable}} in */; do (cd "${{variable}}" || continue; {{echo "Loop is executed"}}) done`
+```
+sum=0
+for ((i=1; i<=100; i+=2)); do
+  sum=$((${sum} + ${i}))
+done
+```

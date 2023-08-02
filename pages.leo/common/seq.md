@@ -1,20 +1,20 @@
-# seq
+# seq [modified]
 
 > Output a sequence of numbers to `stdout`.
 > More information: <https://www.gnu.org/software/coreutils/seq>.
 
-- Sequence from 1 to 10:
+- 从 1 输出到 10：
 
 `seq 10`
 
-- Every 3rd number from 5 to 20:
+- :从 5 输出到 20，每次增量为 3：
 
 `seq 5 3 20`
 
-- Separate the output with a space instead of a newline:
+- 使用空格作为分隔符：
 
 `seq -s " " 5 3 20`
 
-- Format output width to a minimum of 4 digits padding with zeros as necessary:
+- 格式化输出，用 0 补齐为 4 位数字：
 
 `seq -f "%04g" 5 3 20`

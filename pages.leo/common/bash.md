@@ -1,37 +1,30 @@
-# bash
+# bash [modified]
 
 > Bourne-Again SHell, an `sh`-compatible command-line interpreter.
 > See also: `zsh`, `histexpand` (history expansion).
 > More information: <https://gnu.org/software/bash/>.
 
-- Start an interactive shell session:
+- 新开一个 shell 回话：
 
 `bash`
 
-- Start an interactive shell session without loading startup configs:
+- 新开一个 shell 回话，但不加载配置文件（~/.bashrc）：
 
 `bash --norc`
 
-- Execute specific [c]ommands:
+- 执行指定命令：
 
 `bash -c "{{echo 'bash is executed'}}"`
 
-- Execute a specific script:
+- 执行指定脚本：
 
 `bash {{path/to/script.sh}}`
 
-- Execute a specific script while printing each command before executing it:
+- 检查脚本是否存在语法问题：
+
+`bash -n {{path/to/script.sh}}`
+
+- 输出脚本的执行过程：
 
 `bash -x {{path/to/script.sh}}`
 
-- Execute a specific script and stop at the first [e]rror:
-
-`bash -e {{path/to/script.sh}}`
-
-- Execute specific commands from `stdin`:
-
-`{{echo "echo 'bash is executed'"}} | bash`
-
-- Start a [r]estricted shell session:
-
-`bash -r`

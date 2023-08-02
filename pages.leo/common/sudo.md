@@ -1,36 +1,21 @@
-# sudo
+# sudo [modified]
 
 > Executes a single command as the superuser or another user.
 > More information: <https://www.sudo.ws/sudo.html>.
 
 - Run a command as the superuser:
 
-`sudo {{less /var/log/syslog}}`
+`sudo {{command}}`
 
-- Edit a file as the superuser with your default editor:
+- 使用默认编辑器编辑文件，编辑器由环境变量 SUDO_EDITOR, VISUAL, EDITOR 依次指出：
 
 `sudo --edit {{/etc/fstab}}`
 
-- Run a command as another user and/or group:
+- -E 选项保留当前用户已存在的环境变量：
 
-`sudo --user={{user}} --group={{group}} {{id -a}}`
+`sudo -E {{visudo}}`
 
-- Repeat the last command prefixed with `sudo` (only in `bash`, `zsh`, etc.):
+- 使用 `sudo` 重复执行上条命令 (only in `bash`, `zsh`, etc.):
 
 `sudo !!`
 
-- Launch the default shell with superuser privileges and run login-specific files (`.profile`, `.bash_profile`, etc.):
-
-`sudo --login`
-
-- Launch the default shell with superuser privileges without changing the environment:
-
-`sudo --shell`
-
-- Launch the default shell as the specified user, loading the user's environment and reading login-specific files (`.profile`, `.bash_profile`, etc.):
-
-`sudo --login --user={{user}}`
-
-- List the allowed (and forbidden) commands for the invoking user:
-
-`sudo --list`
