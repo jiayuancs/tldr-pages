@@ -1,20 +1,13 @@
-# nohup
+# nohup [modified]
 
 > Allows for a process to live when the terminal gets killed.
 > More information: <https://www.gnu.org/software/coreutils/nohup>.
 
-- Run a process that can live beyond the terminal:
+- 在后台运行任务，即使关闭终端，任务仍继续执行：
 
-`nohup {{command}} {{argument1 argument2 ...}}`
+`nohup {{command}} &`
 
-- Launch `nohup` in background mode:
+- 指定输出文件：
 
-`nohup {{command}} {{argument1 argument2 ...}} &`
+`nohup {{command}} > {{path/to/output_file}} 2>&1 &`
 
-- Run a shell script that can live beyond the terminal:
-
-`nohup {{path/to/script.sh}} &`
-
-- Run a process and write the output to a specific file:
-
-`nohup {{command}} {{argument1 argument2 ...}} > {{path/to/output_file}} &`

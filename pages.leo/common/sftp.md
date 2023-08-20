@@ -1,31 +1,23 @@
-# sftp
+# sftp [modified]
 
 > Secure File Transfer Program.
 > Interactive program to copy files between hosts over SSH.
 > For non-interactive file transfers, see `scp` or `rsync`.
 > More information: <https://manned.org/sftp>.
 
-- Connect to a remote server and enter an interactive command mode:
+- 连接远程主机，-i 指定私钥文件，-P 指定端口号，默认为 22:
 
-`sftp {{remote_user}}@{{remote_host}}`
+`sftp -i {{path/private_key}} -P {{port}} {{remote_user}}@{{remote_host}}`
 
-- Connect using an alternate port:
+- 将文件下载到本地：
 
-`sftp -P {{remote_port}} {{remote_user}}@{{remote_host}}`
+`get {{/path/remote_file}} {{/path/local_file}}`
 
-- Connect using a predefined host (in `~/.ssh/config`):
+- 将本地文件发送到远程主机：
 
-`sftp {{host}}`
+`put {{/path/local_file}} {{/path/remote_file}}`
 
-- Transfer remote file to the local system:
-
-`get {{/path/remote_file}}`
-
-- Transfer local file to the remote system:
-
-`put {{/path/local_file}}`
-
-- Transfer remote directory to the local system recursively (works with `put` too):
+- -R 选项用于递归发送目录 (works with `put` too):
 
 `get -R {{/path/remote_directory}}`
 

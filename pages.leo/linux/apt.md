@@ -1,4 +1,4 @@
-# apt
+# apt [modified]
 
 > Package management utility for Debian based distributions.
 > Recommended replacement for `apt-get` when used interactively in Ubuntu versions 16.04 and later.
@@ -21,9 +21,13 @@
 
 `sudo apt install {{package}}`
 
-- Remove a package (using `purge` instead also removes its configuration files):
+- Remove a package:
 
 `sudo apt remove {{package}}`
+
+- Remove a package and its configuration files:
+
+`sudo apt purge {{package}}`
 
 - Upgrade all installed packages to their newest available versions:
 

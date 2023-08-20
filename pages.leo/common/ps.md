@@ -1,32 +1,28 @@
-# ps
+# ps [modified]
 
 > Information about running processes.
 > More information: <https://manned.org/ps>.
 
-- List all running processes:
+- 常用选项：
 
-`ps aux`
+```
+-j: 使用 jobs 格式输出（包含 PGID 和 SID 等字段）
+-l: 采用详细的格式来显示程序状况
+-e: 显示所有进程
+-f: 显示所有进程的完整格式，包括命令行、UID、PPID、CPU使用率、STIME等
+-F: 包含 -f，同时增加了一些格外的字段
+-L: 显示线程
+```
 
-- List all running processes including the full command string:
+- 查看所有运行的进程：
 
-`ps auxww`
+`ps aux / ps -ef`
 
-- Search for a process that matches a string:
+- 仅查看自己 bash 相关进程的详细信息：
 
-`ps aux | grep {{string}}`
+`ps -l`
 
-- List all processes of the current user in extra full format:
+- 查看某个进程中的线程：
 
-`ps --user $(id -u) -F`
+`ps -Lf {{PID}}`
 
-- List all processes of the current user as a tree:
-
-`ps --user $(id -u) f`
-
-- Get the parent PID of a process:
-
-`ps -o ppid= -p {{pid}}`
-
-- Sort processes by memory consumption:
-
-`ps --sort size`

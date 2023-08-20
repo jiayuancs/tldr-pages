@@ -1,15 +1,23 @@
-# tcpdump
+# tcpdump [modified]
 
 > Dump traffic on a network.
 > More information: <https://www.tcpdump.org>.
 
-- List available network interfaces:
+- 列出所有可用的网卡：
 
 `tcpdump -D`
 
-- Capture the traffic of a specific interface:
+- 指定要捕获的网卡，默认捕获第一个网卡的数据，使用 any 表示捕获所有网卡数据：
 
 `tcpdump -i {{eth0}}`
+
+- 将捕获的数据保存到文件中，该文件可被 wireshark 打开：
+
+`tcpdump -w {{dumpfile.pcap}}`
+
+- 读取 .pcap 文件：
+
+`tcpdump -r {{dumpfile.pcap}}`
 
 - Capture all TCP traffic showing contents (ASCII) in console:
 
@@ -27,10 +35,3 @@
 
 `tcpdump net {{192.168.1.0/24}}`
 
-- Capture all traffic except traffic over port 22 and save to a dump file:
-
-`tcpdump -w {{dumpfile.pcap}} port not {{22}}`
-
-- Read from a given dump file:
-
-`tcpdump -r {{dumpfile.pcap}}`

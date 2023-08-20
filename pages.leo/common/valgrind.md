@@ -1,10 +1,14 @@
-# valgrind
+# valgrind [modified]
 
 > Wrapper for a set of expert tools for profiling, optimizing and debugging programs.
 > Commonly used tools include `memcheck`, `cachegrind`, `callgrind`, `massif`, `helgrind`, and `drd`.
 > More information: <http://www.valgrind.org>.
 
-- Use the (default) Memcheck tool to show a diagnostic of memory usage by `program`:
+- 安装：
+
+`sudo apt install valgrind`
+
+- 使用默认的内存检查工具 Memcheck 来显示 `program` 的内存使用情况：
 
 `valgrind {{program}}`
 

@@ -1,4 +1,4 @@
-# kill
+# kill [modified]
 
 > Sends a signal to a process, usually related to stopping the process.
 > All signals except for SIGKILL and SIGSTOP can be intercepted by the process to perform a clean exit.
@@ -12,26 +12,19 @@
 
 `kill -l`
 
-- Terminate a background job:
+- Terminate a background job，详见 jobs 命令:
 
 `kill %{{job_id}}`
 
-- Terminate a program using the SIGHUP (hang up) signal. Many daemons will reload instead of terminating:
-
-`kill -{{1|HUP}} {{process_id}}`
-
-- Terminate a program using the SIGINT (interrupt) signal. This is typically initiated by the user pressing `Ctrl + C`:
-
-`kill -{{2|INT}} {{process_id}}`
-
-- Signal the operating system to immediately terminate a program (which gets no chance to capture the signal):
+- 强制杀死指定进程：
 
 `kill -{{9|KILL}} {{process_id}}`
 
-- Signal the operating system to pause a program until a SIGCONT ("continue") signal is received:
+- 强制杀死指定进程组：
 
-`kill -{{17|STOP}} {{process_id}}`
+`kill -{{9|KILL}} -{{process_group_id}}`
 
-- Send a `SIGUSR1` signal to all processes with the given GID (group id):
+- 查看常用信号含义：
 
-`kill -{{SIGUSR1}} -{{group_id}}`
+`tldr signal`
+

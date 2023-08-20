@@ -17,3 +17,8 @@
 - until 循环：
 
 `tldr until`
+
+- Linux(x86/ARM) 信号表：
+
+`tldr signal`
+

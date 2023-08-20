@@ -1,29 +1,29 @@
-# jobs
+# jobs [modified]
 
 > Shell builtin for viewing information about processes spawned by the current shell.
 > Options other than `-l` and `-p` are exclusive to `bash`.
 > More information: <https://manned.org/jobs>.
 
+- 常用选项：
+
+```
+-l: 同时列出 PID
+-r: 只列出正在运行的进程
+-s: 只列出已停止的进程
+```
+
 - View jobs spawned by the current shell:
 
 `jobs`
 
-- List jobs and their process IDs:
+- 将后台任务拿到前台处理：
 
-`jobs -l`
+`fg %{{job_id}}`
 
-- Display information about jobs with changed status:
+- 让后台任务继续运行：
 
-`jobs -n`
+`bg %{{job_id}}`
 
-- Display only process IDs:
+- 终止后台任务：
 
-`jobs -p`
-
-- Display running processes:
-
-`jobs -r`
-
-- Display stopped processes:
-
-`jobs -s`
+`kill %{{job_id}}`
