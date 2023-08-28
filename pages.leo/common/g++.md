@@ -10,19 +10,34 @@
 -o: 指定输出文件名
 -g: 生成调试信息
 -std=c++17: 指定 C++17 标准
--Wall: 显示常见警告
 -I: 指定头文件路径
 -L: 指定库文件路径
 -l: 指定库文件名
 -fPIC: 生成位置无关的代码
 -shared: 生成动态链接库
 -D: 定义宏
+-march=native: 指定CPU体系结构为本地平台
 
 分阶段：
   -E: 只预处理，不编译，得到 .i 文件
   -S: 只编译，不汇编，得到 .s 文件
   -c: 只汇编，不链接，得到 .o 文件
   无: 链接，生成可执行文件
+```
+
+- 与警告/错误相关
+
+```
+-Wall: 显示常见警告
+-Wextra: 一些额外的警告
+-Werror: 当出现警告时转为错误，停止编译
+-Wconversion: 一些可能改变值的隐式转换，给出警告
+-Wno-unused-parameter: 函数中出现未使用的参数，不给出警告
+-Wold-style-cast: C风格的转换，给出警告
+-Woverloaded-virtual: 如果函数的声明隐藏住了基类的虚函数，给出警告
+-Wpointer-arith: 对函数指针或者void*类型的指针进行算术操作时，给出警告
+-Wshadow: 当一个全局变量覆盖住了另一个局部/全局变量时，给出警告
+-Wwrite-strings: 将字符串常量地址赋值给non-const char*指针将产生警告 
 ```
 
 - Choose a language standard to compile for (C++98/C++11/C++14/C++17):
