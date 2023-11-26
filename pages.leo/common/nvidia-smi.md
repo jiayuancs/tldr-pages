@@ -1,4 +1,4 @@
-# nvidia-smi
+# nvidia-smi [modified]
 
 > Aid the management and monitoring of NVIDIA GPU devices.
 > More information: <https://developer.nvidia.com/nvidia-system-management-interface>.
@@ -7,10 +7,6 @@
 
 `nvidia-smi`
 
-- Display more detailed GPU information:
+- 每间隔1秒刷新一次
 
-`nvidia-smi --query`
-
-- Monitor overall GPU usage with 1-second update interval:
-
-`nvidia-smi dmon`
+`nvidia-smi -l {{1}}`
