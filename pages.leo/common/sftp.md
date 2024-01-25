@@ -5,9 +5,18 @@
 > For non-interactive file transfers, see `scp` or `rsync`.
 > More information: <https://manned.org/sftp>.
 
-- 连接远程主机，-i 指定私钥文件，-P 指定端口号，默认为 22:
+- 在普通命令前增加 l 前缀，使得该命令在本地主机执行，常用的命令如下：
 
-`sftp -i {{path/private_key}} -P {{port}} {{remote_user}}@{{remote_host}}`
+```
+cd / lcd        : 切换远程/本地目录
+ls / lls        : 查看远程/本地目录内的所有目录项
+pwd / lpwd      : 查看远程/本地的工作路径
+mkdir / lmkdir  : 在远程/本地创建目录
+```
+
+- 连接远程主机，-i 指定私钥文件，-P 指定端口号，默认为 22，同时可切换远程主机的指定目录:
+
+`sftp -i {{path/private_key}} -P {{port}} {{remote_user}}@{{remote_host}}{{:/path/to/dir/}}`
 
 - 将文件下载到本地：
 
@@ -21,10 +30,6 @@
 
 `get -R {{/path/remote_directory}}`
 
-- Get list of files on local machine:
+- 查看帮助文档，了解支持哪些命令：
 
-`lls`
-
-- Get list of files on remote machine:
-
-`ls`
+`help`
