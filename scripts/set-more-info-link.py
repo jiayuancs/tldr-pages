@@ -1,6 +1,46 @@
 #!/usr/bin/env python3
 # SPDX-License-Identifier: MIT
 
+"""
+This script sets the "More information" link for all translations of a page.
+It can be used to add or update the links in translations.
+
+Note: Before running this script, ensure that TLDR_ROOT is set to the location
+of a clone of https://github.com/tldr-pages/tldr, and 'git' is available.
+If there is a symlink error when using the stage flag remove the `pages.en`
+directory temporarily and try executing it again.
+
+Usage: python3 scripts/set-more-info-link.py [-p PAGE] [-s] [-S] [-n] [LINK]
+
+Supported Arguments:
+    -p, --page    Specify the page name in the format "platform/command.md".
+                  This option allows setting the link for a specific page.
+    -s, --stage   Stage modified pages for commit. This option requires 'git'
+                  to be on the $PATH and TLDR_ROOT to be a Git repository.
+    -S, --sync    Synchronize each translation's more information link (if
+                  exists) with that of the English page. This is useful to
+                  ensure consistency across translations.
+    -n, --dry-run Show what changes would be made without actually modifying the page.
+
+Positional Argument:
+    LINK          The link to be set as the "More information" link.
+
+Examples:
+    1. Set the link for a specific page:
+       python3 scripts/set-more-info-link.py -p common/tar.md https://example.com
+
+    2. Synchronize more information links across translations:
+       python3 scripts/set-more-info-link.py -S
+
+    3. Synchronize more information links across translations and stage modified pages for commit:
+       python3 scripts/set-more-info-link.py -Ss
+       python3 scripts/set-more-info-link.py --sync --stage
+
+    4. Show what changes would be made across translations:
+       python3 scripts/set-more-info-link.py -Sn
+       python3 scripts/set-more-info-link.py --sync --dry-run
+"""
+
 import argparse
 import os
 import re
@@ -12,11 +52,13 @@ labels = {
     "ar": "لمزيد من التفاصيل:",
     "bn": "আরও তথ্য পাবেন:",
     "bs": "Više informacija:",
+    "cs": "Více informací:",
     "ca": "Més informació:",
     "da": "Mere information:",
     "de": "Weitere Informationen:",
     "es": "Más información:",
     "fa": "اطلاعات بیشتر:",
+    "fi": "Lisätietoja:",
     "fr": "Plus d'informations :",
     "sh": "Više informacija:",
     "hi": "अधिक जानकारी:",
@@ -56,15 +98,14 @@ def get_tldr_root():
 
     if "TLDR_ROOT" in os.environ:
         return os.environ["TLDR_ROOT"]
-    else:
-        print(
-            "\x1b[31mPlease set TLDR_ROOT to the location of a clone of https://github.com/tldr-pages/tldr."
-        )
-        sys.exit(1)
+    print(
+        "\x1b[31mPlease set TLDR_ROOT to the location of a clone of https://github.com/tldr-pages/tldr."
+    )
+    sys.exit(1)
 
 
-def set_link(file, link):
-    with open(file) as f:
+def set_link(file, link, dry_run=False):
+    with open(file, encoding="utf-8") as f:
         lines = f.readlines()
 
     desc_start = 0
@@ -86,11 +127,11 @@ def set_link(file, link):
         locale = "en"
 
     # build new line
-    if locale == "hi":
+    if locale in ["bn", "hi", "ne"]:
         new_line = f"> {labels[locale]} <{link}>।\n"
-    elif locale == "ja" or locale == "th":
+    elif locale in ["ja", "th"]:
         new_line = f"> {labels[locale]} <{link}>\n"
-    elif locale == "zh" or locale == "zh_TW":
+    elif locale in ["zh", "zh_TW"]:
         new_line = f"> {labels[locale]}<{link}>.\n"
     else:
         new_line = f"> {labels[locale]} <{link}>.\n"
@@ -99,23 +140,35 @@ def set_link(file, link):
         # return empty status to indicate that no changes were made
         return ""
 
+    status_prefix = "\x1b[36m"  # Color code for pages
+
     if re.search(r"^>.*<.+>", lines[desc_end]):
         # overwrite last line
         lines[desc_end] = new_line
-        status = "\x1b[34mlink updated"
+        status_prefix = "\x1b[34m"
+        action = "updated"
     else:
         # add new line
         lines.insert(desc_end + 1, new_line)
-        status = "\x1b[36mlink added"
+        status_prefix = "\x1b[36m"
+        action = "added"
 
-    with open(file, "w") as f:
-        f.writelines(lines)
+    if dry_run:
+        status = f"link will be {action}"
+    else:
+        status = f"link {action}"
+
+    status = f"{status_prefix}{status}\x1b[0m"
+
+    if not dry_run:
+        with open(file, "w", encoding="utf-8") as f:
+            f.writelines(lines)
 
     return status
 
 
 def get_link(file):
-    with open(file) as f:
+    with open(file, encoding="utf-8") as f:
         lines = f.readlines()
 
     desc_start = 0
@@ -136,14 +189,14 @@ def get_link(file):
         return ""
 
 
-def sync(root, pages_dirs, command, link):
+def sync(root, pages_dirs, command, link, dry_run=False):
     rel_paths = []
     for page_dir in pages_dirs:
         path = os.path.join(root, page_dir, command)
         if os.path.exists(path):
             rel_path = path.replace(f"{root}/", "")
             rel_paths.append(rel_path)
-            status = set_link(path, link)
+            status = set_link(path, link, dry_run)
             if status != "":
                 print(f"\x1b[32m{rel_path} {status}\x1b[0m")
     return rel_paths
@@ -174,6 +227,13 @@ def main():
         action="store_true",
         default=False,
         help="synchronize each translation's more information link (if exists) with that of English page",
+    )
+    parser.add_argument(
+        "-n",
+        "--dry-run",
+        action="store_true",
+        default=False,
+        help="show what changes would be made without actually modifying the pages",
     )
     parser.add_argument("link", type=str, nargs="?", default="")
     args = parser.parse_args()
@@ -228,9 +288,9 @@ def main():
             for command in commands:
                 link = get_link(os.path.join(root, "pages", command))
                 if link != "":
-                    rel_paths += sync(root, pages_dirs, command, link)
+                    rel_paths += sync(root, pages_dirs, command, link, args.dry_run)
 
-    if args.stage:
+    if args.stage and not args.dry_run:
         subprocess.call(["git", "add", *rel_paths], cwd=root)
 
 

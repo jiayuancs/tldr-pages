@@ -4,7 +4,7 @@
 > A `cat` clone with syntax highlighting and Git integration.
 > More information: <https://github.com/sharkdp/bat>.
 
-- Print the contents of a file to the standard output:
+- Print the contents of a file to `stdout`:
 
 `bat {{path/to/file}}`
 
@@ -22,7 +22,7 @@
 
 - Syntax highlight a JSON file:
 
-`bat --language json {{file.json}}`
+`bat --language json {{path/to/file.json}}`
 
 - Display all supported languages:
 
