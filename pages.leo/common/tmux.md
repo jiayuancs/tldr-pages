@@ -1,4 +1,4 @@
-# tmux
+# tmux [modified]
 
 > Terminal multiplexer. It allows multiple sessions with windows, panes, and more.
 > See also `zellij` and `screen`.
@@ -8,30 +8,22 @@
 
 `tmux`
 
-- Start a new named session:
+- 创建一个会话，并指定会话名称：
 
 `tmux new -s {{name}}`
 
-- List existing sessions:
+- 离开当前会话，让其后台运行：
+
+`tmux detach   /  Ctrl-B d`
+
+- 查看会话列表：
 
 `tmux ls`
 
-- Attach to the most recently used session:
+- 进入指定的会话：
 
-`tmux attach`
+`tmux attach -t {{name}}`
 
-- Detach from the current session (inside a tmux session):
-
-`Ctrl-B d`
-
-- Create a new window (inside a tmux session):
-
-`Ctrl-B c`
-
-- Switch between sessions and windows (inside a tmux session):
-
-`Ctrl-B w`
-
-- Kill a session by name:
+- 关闭指定会话：
 
 `tmux kill-session -t {{name}}`

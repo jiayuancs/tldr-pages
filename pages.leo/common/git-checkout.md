@@ -1,36 +1,13 @@
-# git checkout
+# git checkout [modified]
 
 > Checkout a branch or paths to the working tree.
 > More information: <https://git-scm.com/docs/git-checkout>.
 
-- Create and switch to a new branch:
-
-`git checkout -b {{branch_name}}`
-
-- Create and switch to a new branch based on a specific reference (branch, remote/branch, tag are examples of valid references):
-
-`git checkout -b {{branch_name}} {{reference}}`
-
-- Switch to an existing local branch:
+- 切换到现有分支上，该分支既可以是本地分支，也可以是远程分支：
 
 `git checkout {{branch_name}}`
 
-- Switch to the previously checked out branch:
+- 创建并切换到一个新的分支上：
 
-`git checkout -`
+`git checkout -b {{branch_name}}`
 
-- Switch to an existing remote branch:
-
-`git checkout --track {{remote_name}}/{{branch_name}}`
-
-- Discard all unstaged changes in the current directory (see `git reset` for more undo-like commands):
-
-`git checkout .`
-
-- Discard unstaged changes to a given file:
-
-`git checkout {{path/to/file}}`
-
-- Replace a file in the current directory with the version of it committed in a given branch:
-
-`git checkout {{branch_name}} -- {{path/to/file}}`
