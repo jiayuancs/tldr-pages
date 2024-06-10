@@ -5,13 +5,9 @@
 
 - 创建符号链接：
 
-`ln -s {{/path/to/file_or_directory}} {{path/to/symlink}}`
-
-- f 表示强制覆盖已存在的文件：
-
-`ln -sf {{/path/to/new_file}} {{path/to/symlink}}`
+`ln -s {{/path/to/source_file_or_directory}} {{path/to/symlink}}`
 
 - 创建硬链接：
 
-`ln {{/path/to/file}} {{path/to/hardlink}}`
+`ln {{/path/to/source_file}} {{path/to/hardlink}}`
 

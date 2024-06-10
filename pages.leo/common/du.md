@@ -1,4 +1,4 @@
-# du
+# du []
 
 > Disk usage: estimate and summarize file and directory space usage.
 > More information: <https://www.gnu.org/software/coreutils/du>.

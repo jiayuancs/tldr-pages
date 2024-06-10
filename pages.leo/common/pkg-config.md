@@ -1,7 +1,11 @@
-# pkg-config
+# pkg-config [modified]
 
 > Provide the details of installed libraries for compiling applications.
 > More information: <https://www.freedesktop.org/wiki/Software/pkg-config/>.
+
+- 列出所有已安装的库，以及pkg-config能够找到的.pc文件
+
+`pkg-config --list-all`
 
 - Get the list of libraries and their dependencies:
 

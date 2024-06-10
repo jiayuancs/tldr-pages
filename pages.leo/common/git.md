@@ -1,29 +1,18 @@
-# git
+# git [modified]
 
 > Distributed version control system.
 > Some subcommands such as `commit`, `add`, `branch`, `checkout`, `push`, etc. have their own usage documentation, accessible via `tldr git subcommand`.
 > More information: <https://git-scm.com/>.
 
-- Check the Git version:
+- 创建、删除分支
 
-`git --version`
+`tldr git-branch`
 
-- Show general help:
+- 切换分支
 
-`git --help`
+`tldr git-checkout`
 
-- Show help on a Git subcommand (like `clone`, `add`, `push`, `log`, etc.):
+- 版本回退
 
-`git help {{subcommand}}`
+`tldr git-reset`
 
-- Execute a Git subcommand:
-
-`git {{subcommand}}`
-
-- Execute a Git subcommand on a custom repository root path:
-
-`git -C {{path/to/repo}} {{subcommand}}`
-
-- Execute a Git subcommand with a given configuration set:
-
-`git -c '{{config.key}}={{value}}' {{subcommand}}`
