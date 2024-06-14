@@ -1,7 +1,7 @@
 # dd
 
 > Konvertiere und kopiere eine Datei.
-> Weitere Informationen: <https://www.gnu.org/software/coreutils/dd>.
+> Weitere Informationen: <https://manned.org/man/dd.1p>.
 
 - Erstelle ein bootbares USB-Laufwerk von einer isohybriden Datei (wie `archlinux-xxxx.iso`) und zeige den Fortschritt an:
 
@@ -27,6 +27,6 @@
 
 `dd if={{pfad/zu/datei.img}} of=/dev/{{laufwerk}} status=progress`
 
-- Überprüfe den Fortschritt eines laufenden dd-Prozesses (Führe diesen Befehl von einer anderen Shell aus):
+- Überprüfe den Fortschritt eines laufenden `dd`-Prozesses (Führe diesen Befehl von einer anderen Shell aus):
 
-`kill -USR1 $(pgrep ^dd)`
+`kill -USR1 $(pgrep -x dd)`

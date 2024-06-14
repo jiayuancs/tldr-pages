@@ -1,3 +1,4 @@
+<!-- markdownlint-disable MD041 -->
 <div align="center">
   <h1><a href="https://tldr.sh/"><img alt="tldr-pages" src="images/banner.png" width=600/></a></h1>
 
@@ -42,29 +43,36 @@ $ man tar
 There seems to be room for simpler help pages, focused on practical examples.
 How about:
 
-![Screenshot of the tldr client displaying the tar command in light mode.](images/tldr-light.png#gh-light-mode-only)
-![Screenshot of the tldr client displaying the tar command in dark mode.](images/tldr-dark.png#gh-dark-mode-only)
+<picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/tldr-pages/tldr/blob/main/images/tldr-dark.png">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/tldr-pages/tldr/blob/main/images/tldr-light.png">
+    <img alt="Screenshot of the tldr client displaying the tar command." src="https://github.com/tldr-pages/tldr/blob/main/images/tldr-dark.png">
+</picture>
 
 This repository is just that: an ever-growing collection of examples
 for the most common UNIX, Linux, macOS, SunOS, Android and Windows command-line tools.
 
 ## How do I use it?
 
-A popular and convenient way to access these pages on your computer
-is to install the [Node.js client](https://github.com/tldr-pages/tldr-node-client),
-which is supported by the tldr-pages project maintainers:
+> [!TIP]
+> For browsing without installing a client on your computer,
+> see the web client at <https://tldr.inbrowser.app> (with offline support using PWA).
 
-```sh
+A popular and convenient way to access these pages on your computer
+is to install the official [Node.js client](https://github.com/tldr-pages/tldr-node-client):
+
+```shell
 npm install -g tldr
 ```
 
-Alternatively, you can also use the official [Python client](https://github.com/tldr-pages/tldr-python-client), which can be installed via [pip3](https://pypi.org/project/tldr/).
+Alternatively, you can also use the official [Python client](https://github.com/tldr-pages/tldr-python-client), which can be installed via [pip3](https://pypi.org/project/tldr/) (or [other package managers](https://github.com/tldr-pages/tldr-python-client#installation)):
 
 ```shell
 pip3 install tldr
 ```
 
-Or Linux and Mac users can also install the official [Rust Client](https://github.com/tldr-pages/tlrc) using [Homebrew](https://formulae.brew.sh/formula/tlrc):
+Linux and Mac users can also install the official [Rust Client](https://github.com/tldr-pages/tlrc) using [Homebrew](https://formulae.brew.sh/formula/tlrc)
+(or [other package managers](https://github.com/tldr-pages/tlrc#installation) on other operating systems):
 
 ```shell
 brew install tlrc
@@ -73,11 +81,10 @@ brew install tlrc
 Then you have direct access to simplified, easy-to-read help for commands, such as `tar`,
 accessible through typing `tldr tar` instead of the standard `man tar`.
 
-If you want an offline version without installing any software,
-check out the [PDF version](https://tldr.sh/assets/tldr-book.pdf).
+If you don't want to install any software, check out the [PDF version](https://github.com/tldr-pages/tldr/releases/latest/download/tldr-book.pdf) instead.
 
-For browsing without installing a client to your computer,
-see the web client at <https://tldr.inbrowser.app> (with offline support using PWA).
+> [!NOTE]
+> PDFs for translations are available for most languages. You can find them in the releases assets of the [latest release](https://github.com/tldr-pages/tldr/releases/latest).
 
 There are also **various other clients** provided by the community,
 both for the command-line and for other platforms.

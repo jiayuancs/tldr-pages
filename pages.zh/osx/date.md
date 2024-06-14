@@ -1,7 +1,7 @@
 # date
 
 > 设置或显示系统日期。
-> 更多信息：<https://ss64.com/osx/date.html>.
+> 更多信息：<https://keith.github.io/xcode-man-pages/date.1.html>.
 
 - 使用默认区域设置的格式显示当前日期：
 
@@ -17,4 +17,4 @@
 
 - 使用默认格式显示特定日期（格式化指定 UNIX 时间戳）：
 
-`date -r 1473305798`
+`date -r {{1473305798}}`

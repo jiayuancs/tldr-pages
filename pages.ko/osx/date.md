@@ -1,7 +1,7 @@
 # date
 
 > 시스템 날짜 설정 또는 표시.
-> 더 많은 정보: <https://ss64.com/osx/date.html>.
+> 더 많은 정보: <https://keith.github.io/xcode-man-pages/date.1.html>.
 
 - 기본 로케일 형식을 사용하여 현재 날짜를 표시:
 
@@ -17,4 +17,4 @@
 
 - 기본 형식을 사용하여 특정 날짜(Unix 타임스탬프로 표시) 표시:
 
-`date -r 1473305798`
+`date -r {{1473305798}}`
